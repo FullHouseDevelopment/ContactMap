@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Yaref92.Events;
 using Yaref92.Events.Abstractions;
 using Yaref92.Events.Serialization;
+using Yaref92.Events.Transport.Tcp;
 using Yaref92.Events.Transports;
 
 namespace ContactMap.Application;
@@ -44,7 +45,7 @@ public static class EventConfiguration
             ILogger<EventAggregator>? logger = provider.GetService<ILogger<EventAggregator>>();
             EventAggregator localAggregator = new EventAggregator(logger);
             JsonEventSerializer serializer = new JsonEventSerializer();
-            TCPEventTransport transport = new TCPEventTransport(ListenPort, serializer); // Choose your port
+            TcpEventTransport transport = new TcpEventTransport(ListenPort, serializer); // Choose your port
             NetworkedEventAggregator networkedAggregator = new NetworkedEventAggregator(localAggregator, transport);
             transport.StartListeningAsync();
 
