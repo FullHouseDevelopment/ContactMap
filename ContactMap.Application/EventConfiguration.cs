@@ -74,8 +74,8 @@ public static class EventConfiguration
 
         // Subscribe to events
         RelationshipSubscriber relationshipSubscriber = serviceProvider.GetRequiredService<RelationshipSubscriber>();
-        eventAggregator.SubscribeToEventType((IAsyncEventSubscriber<RelationshipRequested>)relationshipSubscriber);
-        eventAggregator.SubscribeToEventType((IAsyncEventSubscriber<RelationshipApproved>)relationshipSubscriber);
+        eventAggregator.SubscribeToEventType((IAsyncEventHandler<RelationshipRequested>)relationshipSubscriber);
+        eventAggregator.SubscribeToEventType((IAsyncEventHandler<RelationshipApproved>)relationshipSubscriber);
 
         return eventAggregator;
     }
