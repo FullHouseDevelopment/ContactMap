@@ -6,4 +6,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ContactMap.Domain\ContactMap.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Yaref92.Events.Transport.Tcp" Version="2.2.2" />
+  </ItemGroup>
 </Project>
