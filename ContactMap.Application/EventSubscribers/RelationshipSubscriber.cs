@@ -7,8 +7,8 @@ namespace ContactMap.Application.EventSubscribers;
 /// Handles relationship-related domain events asynchronously.
 /// </summary>
 public class RelationshipSubscriber :
-    IAsyncEventSubscriber<RelationshipRequested>,
-    IAsyncEventSubscriber<RelationshipApproved>
+    IAsyncEventHandler<RelationshipRequested>,
+    IAsyncEventHandler<RelationshipApproved>
 {
     /// <summary>
     /// Handles the RelationshipRequested asynchronously.
