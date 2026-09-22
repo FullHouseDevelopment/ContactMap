@@ -1,5 +1,5 @@
 using ContactMap.Domain.Events;
-using Yaref92.Events.Abstractions;
+using FullHouse.Events.Abstractions;
 
 namespace ContactMap.Application.EventSubscribers;
 

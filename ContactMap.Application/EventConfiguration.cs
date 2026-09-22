@@ -5,10 +5,10 @@ using ContactMap.Domain.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using Yaref92.Events;
-using Yaref92.Events.Abstractions;
-using Yaref92.Events.Serialization;
-using Yaref92.Events.Transports;
+using FullHouse.Events;
+using FullHouse.Events.Abstractions;
+using FullHouse.Events.Serialization;
+using FullHouse.Events.Transports;
 
 namespace ContactMap.Application;
 
