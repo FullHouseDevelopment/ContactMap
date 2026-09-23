@@ -1,6 +1,6 @@
 # ContactMap
 
-A cross-platform, event-driven contact sharing and mapping application using Clean Architecture, DDD, CQRS, and Yaref92.Events for event aggregation.
+A cross-platform, event-driven contact sharing and mapping application using Clean Architecture, DDD, CQRS, and FullHouse.Events for event aggregation.
 
 ## Solution Structure
 
@@ -14,13 +14,13 @@ A cross-platform, event-driven contact sharing and mapping application using Cle
 ## Key Technologies
 
 - **CQRS**: Commands and command handlers for all write operations.
-- **Event Aggregation**: Yaref92.Events for domain event publishing and async subscribers.
+- **Event Aggregation**: FullHouse.Events for domain event publishing and async subscribers.
 - **EF Core**: SQLite persistence (can be swapped for PostgreSQL or others).
 - **.NET MAUI**: Modern, cross-platform UI.
 
 ## Event-Driven Flow
 
-- Domain events (e.g., `RelationshipRequestedEvent`, `RelationshipApprovedEvent`) are raised and published via Yaref92.Events.
+- Domain events (e.g., `RelationshipRequestedEvent`, `RelationshipApprovedEvent`) are raised and published via FullHouse.Events.
 - Subscribers (e.g., `RelationshipSubscriber`) handle these events asynchronously for side effects (notifications, etc).
 
 ## How to Run
@@ -39,4 +39,4 @@ A cross-platform, event-driven contact sharing and mapping application using Cle
 
 ## License
 
-GPL-3.0 (see Yaref92.Events and this repo)
+GPL-3.0 (see FullHouse.Events and this repo)

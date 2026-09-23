@@ -1,5 +1,5 @@
 using ContactMap.Domain.Events;
-using Yaref92.Events.Abstractions;
+using FullHouse.Events.Abstractions;
 
 namespace ContactMap.Application.EventSubscribers;
 
@@ -7,8 +7,8 @@ namespace ContactMap.Application.EventSubscribers;
 /// Handles relationship-related domain events asynchronously.
 /// </summary>
 public class RelationshipSubscriber :
-    IAsyncEventSubscriber<RelationshipRequested>,
-    IAsyncEventSubscriber<RelationshipApproved>
+    IAsyncEventHandler<RelationshipRequested>,
+    IAsyncEventHandler<RelationshipApproved>
 {
     /// <summary>
     /// Handles the RelationshipRequested asynchronously.

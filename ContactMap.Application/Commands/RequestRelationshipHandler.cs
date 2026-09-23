@@ -2,7 +2,7 @@ using ContactMap.Application.Interfaces;
 using ContactMap.Domain.Entities;
 using ContactMap.Domain.Events;
 using ContactMap.Domain.Repositories;
-using Yaref92.Events.Abstractions;
+using FullHouse.Events.Abstractions;
 
 namespace ContactMap.Application.Commands;
 

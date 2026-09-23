@@ -5,10 +5,10 @@ using ContactMap.Domain.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using Yaref92.Events;
-using Yaref92.Events.Abstractions;
-using Yaref92.Events.Serialization;
-using Yaref92.Events.Transports;
+using FullHouse.Events;
+using FullHouse.Events.Abstractions;
+using FullHouse.Events.Serialization;
+using FullHouse.Events.Transport.Tcp;
 
 namespace ContactMap.Application;
 
@@ -44,7 +44,7 @@ public static class EventConfiguration
             ILogger<EventAggregator>? logger = provider.GetService<ILogger<EventAggregator>>();
             EventAggregator localAggregator = new EventAggregator(logger);
             JsonEventSerializer serializer = new JsonEventSerializer();
-            TCPEventTransport transport = new TCPEventTransport(ListenPort, serializer); // Choose your port
+            TcpEventTransport transport = new TcpEventTransport(ListenPort, serializer); // Choose your port
             NetworkedEventAggregator networkedAggregator = new NetworkedEventAggregator(localAggregator, transport);
             transport.StartListeningAsync();
 
@@ -74,8 +74,8 @@ public static class EventConfiguration
 
         // Subscribe to events
         RelationshipSubscriber relationshipSubscriber = serviceProvider.GetRequiredService<RelationshipSubscriber>();
-        eventAggregator.SubscribeToEventType((IAsyncEventSubscriber<RelationshipRequested>)relationshipSubscriber);
-        eventAggregator.SubscribeToEventType((IAsyncEventSubscriber<RelationshipApproved>)relationshipSubscriber);
+        eventAggregator.SubscribeToEventType((IAsyncEventHandler<RelationshipRequested>)relationshipSubscriber);
+        eventAggregator.SubscribeToEventType((IAsyncEventHandler<RelationshipApproved>)relationshipSubscriber);
 
         return eventAggregator;
     }

@@ -12,7 +12,7 @@ concurrency:
 jobs:
   baseline:
     name: Shared workflow policy
-    uses: yaron-E92/AutoDev/.github/workflows/profile-baseline.yml@7190410c74ab6674d1c8cc647b178bbc4b5cdd54
+    uses: FullHouseDevelopment/AutoDev/.github/workflows/profile-baseline.yml@7190410c74ab6674d1c8cc647b178bbc4b5cdd54
     with:
       require_concurrency: true
     permissions:
@@ -21,7 +21,7 @@ jobs:
   integration-tests:
     name: Explicit integration suite
     needs: [baseline]
-    uses: yaron-E92/AutoDev/.github/workflows/profile-dotnet.yml@7190410c74ab6674d1c8cc647b178bbc4b5cdd54
+    uses: FullHouseDevelopment/AutoDev/.github/workflows/profile-dotnet.yml@7190410c74ab6674d1c8cc647b178bbc4b5cdd54
     with:
       global_json_file: global.json
       setup_command: bash scripts/ci-configure-nuget.sh

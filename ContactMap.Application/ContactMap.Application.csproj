@@ -5,5 +5,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\ContactMap.Domain\ContactMap.Domain.csproj" />
+    <PackageReference Include="FullHouse.Events.Transport.Tcp" Version="3.0.0" />
   </ItemGroup>
 </Project>
