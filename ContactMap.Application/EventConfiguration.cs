@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using FullHouse.Events;
 using FullHouse.Events.Abstractions;
 using FullHouse.Events.Serialization;
-using FullHouse.Events.Transports;
+using FullHouse.Events.Transport.Tcp;
 
 namespace ContactMap.Application;
 
@@ -44,7 +44,7 @@ public static class EventConfiguration
             ILogger<EventAggregator>? logger = provider.GetService<ILogger<EventAggregator>>();
             EventAggregator localAggregator = new EventAggregator(logger);
             JsonEventSerializer serializer = new JsonEventSerializer();
-            TCPEventTransport transport = new TCPEventTransport(ListenPort, serializer); // Choose your port
+            TcpEventTransport transport = new TcpEventTransport(ListenPort, serializer); // Choose your port
             NetworkedEventAggregator networkedAggregator = new NetworkedEventAggregator(localAggregator, transport);
             transport.StartListeningAsync();
 
