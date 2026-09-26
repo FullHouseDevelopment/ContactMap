@@ -16,7 +16,7 @@ concurrency:
 jobs:
   baseline:
     name: Shared workflow policy
-    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-baseline.yml@80340258d8695c41d648d8a67e05df67a2da4972
+    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-baseline.yml@e94f1a2958f87e12a9baf32327c65887b3d9f096
     with:
       require_concurrency: true
     permissions:
@@ -25,7 +25,7 @@ jobs:
   product:
     name: Shared .NET + MAUI validation
     needs: [baseline]
-    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-maui.yml@80340258d8695c41d648d8a67e05df67a2da4972
+    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-maui.yml@e94f1a2958f87e12a9baf32327c65887b3d9f096
     with:
       global_json_file: global.json
 
