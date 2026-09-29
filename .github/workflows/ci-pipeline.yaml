@@ -15,9 +15,11 @@ concurrency:
 
 jobs:
   baseline:
-    name: Shared workflow policy
-    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-baseline.yml@e94f1a2958f87e12a9baf32327c65887b3d9f096
+    name: Shared development guard
+    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-guard.yml@e432396f2a71d28dd65fd582e78aee2270e39e2b
     with:
+      tier: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'heavy' || 'light' }}
+      check_version_intent: false
       require_concurrency: true
     permissions:
       contents: read
@@ -25,8 +27,9 @@ jobs:
   product:
     name: Shared .NET + MAUI validation
     needs: [baseline]
-    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-maui.yml@e94f1a2958f87e12a9baf32327c65887b3d9f096
+    uses: FullHouseDevelopment/CommonWork/.github/workflows/profile-maui.yml@e432396f2a71d28dd65fd582e78aee2270e39e2b
     with:
+      tier: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'heavy' || 'light' }}
       global_json_file: global.json
 
       headless_enabled: true
